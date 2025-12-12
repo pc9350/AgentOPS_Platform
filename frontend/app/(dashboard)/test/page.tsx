@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Header } from '@/components/layout/header'
 import { Send, Loader2, CheckCircle, AlertTriangle } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
+import { API_URL } from '@/lib/config'
 
 export default function TestPage() {
   const supabase = createClient()
