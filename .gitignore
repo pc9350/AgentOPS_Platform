@@ -88,3 +88,6 @@ coverage/
 *.bak
 *.backup
 
+DEPLOYMENT_GUIDE.md
+DEPLOYMENT.md
+DEPLOY_INSTRUCTIONS.md

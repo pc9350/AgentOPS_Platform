@@ -1,8 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 export const updateSession = async (request: NextRequest) => {
-  console.log('=== MIDDLEWARE ===')
-  console.log('Path:', request.nextUrl.pathname)
+//   console.log('=== MIDDLEWARE ===')
+//   console.log('Path:', request.nextUrl.pathname)
   
   // Find the Supabase auth cookie
   const allCookies = request.cookies.getAll();
@@ -19,7 +19,7 @@ export const updateSession = async (request: NextRequest) => {
       if (session.access_token && session.expires_at) {
         const now = Math.floor(Date.now() / 1000);
         isAuthenticated = session.expires_at > now;
-        console.log('Session found, expires_at:', session.expires_at, 'now:', now, 'valid:', isAuthenticated);
+        // console.log('Session found, expires_at:', session.expires_at, 'now:', now, 'valid:', isAuthenticated);
       }
     } catch (e) {
       console.log('Failed to parse auth cookie:', e);

@@ -39,7 +39,7 @@ async def verify_supabase_token(token: str) -> dict:
     """
     settings = get_settings()
     
-    print(f"[Auth] Verifying token with JWT secret...")
+    # print(f"[Auth] Verifying token with JWT secret...")
     
     try:
         # Decode and verify the JWT
@@ -49,7 +49,7 @@ async def verify_supabase_token(token: str) -> dict:
             algorithms=["HS256"],
             audience="authenticated",
         )
-        print(f"[Auth] Token verified successfully for user: {payload.get('sub')}")
+        # print(f"[Auth] Token verified successfully for user: {payload.get('sub')}")
         return payload
     except JWTError as e:
         print(f"[Auth] JWT verification failed: {str(e)}")
@@ -75,16 +75,16 @@ async def get_current_user(
     Raises:
         HTTPException: If authentication fails
     """
-    print(f"[Auth] Received credentials: {credentials}")
+    # print(f"[Auth] Received credentials: {credentials}")
     token = credentials.credentials
-    print(f"[Auth] Token (first 50 chars): {token[:50]}...")
+    # print(f"[Auth] Token (first 50 chars): {token[:50]}...")
     
     try:
         payload = await verify_supabase_token(token)
         
         # Extract user info from Supabase JWT structure
         user_id = payload.get("sub")
-        print(f"[Auth] Extracted user_id: {user_id}")
+        # print(f"[Auth] Extracted user_id: {user_id}")
         
         if not user_id:
             print("[Auth] ERROR: Missing user ID in token")
@@ -100,7 +100,7 @@ async def get_current_user(
             role=payload.get("role", "authenticated"),
             exp=datetime.fromtimestamp(payload.get("exp", 0)) if payload.get("exp") else None,
         )
-        print(f"[Auth] Created UserInfo successfully: {user_info}")
+        # print(f"[Auth] Created UserInfo successfully: {user_info}")
         return user_info
     except HTTPException:
         print("[Auth] HTTPException caught, re-raising")

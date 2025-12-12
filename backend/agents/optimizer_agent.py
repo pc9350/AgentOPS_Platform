@@ -5,7 +5,11 @@ Suggests optimal model based on task complexity, cost, and latency requirements.
 from typing import List
 from openai import OpenAI
 import json
-import tiktoken
+try:
+    import tiktoken
+    TIKTOKEN_AVAILABLE = True
+except ImportError:
+    TIKTOKEN_AVAILABLE = False
 
 from config import get_settings, MODEL_PRICING, MODEL_LATENCY
 from db.models import ModelRecommendation, ConversationMessage
@@ -49,13 +53,20 @@ Return your recommendation as JSON:
 
 
 def count_tokens(text: str, model: str = "gpt-4o") -> int:
-    """Count tokens in text using tiktoken."""
-    try:
-        encoding = tiktoken.encoding_for_model(model)
-        return len(encoding.encode(text))
-    except Exception:
-        # Fallback: rough estimate
-        return len(text) // 4
+    """
+    Count tokens in text.
+    Uses tiktoken if available, otherwise uses character-based estimation.
+    """
+    if TIKTOKEN_AVAILABLE:
+        try:
+            encoding = tiktoken.encoding_for_model(model)
+            return len(encoding.encode(text))
+        except Exception:
+            pass
+    
+    # Fallback: character-based estimation
+    # Average: 1 token ≈ 4 characters for English text
+    return max(1, len(text) // 4)
 
 
 def estimate_cost(input_tokens: int, output_tokens: int, model: str) -> float:

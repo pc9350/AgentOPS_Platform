@@ -6,8 +6,6 @@ from typing import List, Dict, Any, TypedDict, Optional
 import asyncio
 from langgraph.graph import StateGraph, END
 from openai import OpenAI
-import tiktoken
-
 from config import get_settings
 from db.models import (
     ConversationMessage,

@@ -313,7 +313,7 @@ async def get_prompt_improvements(
     page = 1
     page_size = 20
     
-    print(f"[Prompt Improvements] Function started! Fetching for user: {user.user_id}, page: {page}, page_size: {page_size}")
+    # print(f"[Prompt Improvements] Function started! Fetching for user: {user.user_id}, page: {page}, page_size: {page_size}")
     
     try:
         # Calculate offset
@@ -364,7 +364,7 @@ async def get_prompt_improvements(
         total = len(results)
         paginated_results = results[offset:offset + page_size]
         
-        print(f"[Prompt Improvements] Found {total} improvements")
+        # print(f"[Prompt Improvements] Found {total} improvements")
         
         return {
             "improvements": paginated_results,
