@@ -22,11 +22,10 @@ python-jose[cryptography]==3.3.0
 tavily-python==0.3.3
 
 # Utilities
-httpx==0.26.0
+httpx>=0.24.0,<0.26  # Compatible with both openai and supabase
 python-dotenv==1.0.1
 
 # Testing
 pytest==8.0.0
 pytest-asyncio==0.23.4
-httpx==0.26.0
 
