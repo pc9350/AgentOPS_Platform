@@ -1,0 +1,90 @@
+# AgentOps Platform - Git Ignore
+
+# ====================
+# Environment Variables
+# ====================
+.env
+.env.local
+.env*.local
+backend/.env
+frontend/.env.local
+
+# ====================
+# Python / Backend
+# ====================
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+backend/**/*.pyd
+backend/.Python
+backend/pip-log.txt
+backend/pip-delete-this-directory.txt
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/dist/
+backend/build/
+backend/*.egg-info/
+
+# ====================
+# Node.js / Frontend
+# ====================
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/dist/
+frontend/.vercel
+frontend/.turbo
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
+
+# ====================
+# IDEs and Editors
+# ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+
+# ====================
+# OS Files
+# ====================
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ====================
+# Logs
+# ====================
+*.log
+logs/
+*.log.*
+
+# ====================
+# Testing
+# ====================
+coverage/
+.nyc_output/
+*.cover
+
+# ====================
+# Misc
+# ====================
+.cache/
+.temp/
+.tmp/
+*.tmp
+*.bak
+*.backup
+
