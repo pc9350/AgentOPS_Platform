@@ -32,7 +32,7 @@ export default function TestPage() {
         throw new Error('You must be logged in to evaluate conversations')
       }
 
-      const response = await fetch('http://localhost:8000/api/evaluate', {
+      const response = await fetch(`${API_URL}/api/evaluate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Header } from '@/components/layout/header'
 import { createClient } from '@/utils/supabase/client'
+import { API_URL } from '@/lib/config'
 import {
   BarChart,
   Bar,
@@ -68,7 +69,7 @@ export default function TelemetryPage() {
 
       // Fetch telemetry stats
       const telemetryResponse = await fetch(
-        `http://localhost:8000/api/conversations/stats/telemetry?days=${days}`,
+        `${API_URL}/api/conversations/stats/telemetry?days=${days}`,
         {
           headers: { 'Authorization': `Bearer ${session.access_token}` },
         }
@@ -76,7 +77,7 @@ export default function TelemetryPage() {
 
       // Fetch safety heatmap
       const safetyResponse = await fetch(
-        'http://localhost:8000/api/conversations/stats/safety-heatmap',
+        `${API_URL}/api/conversations/stats/safety-heatmap`,
         {
           headers: { 'Authorization': `Bearer ${session.access_token}` },
         }

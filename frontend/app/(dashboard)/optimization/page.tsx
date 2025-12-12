@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Header } from '@/components/layout/header'
 import { createClient } from '@/utils/supabase/client'
+import { API_URL } from '@/lib/config'
 import { 
   Lightbulb, 
   ArrowRight, 
@@ -42,7 +43,7 @@ export default function OptimizationPage() {
         return
       }
 
-      const response = await fetch('http://localhost:8000/api/prompt-improvements', {
+      const response = await fetch(`${API_URL}/api/prompt-improvements`, {
         headers: {
           'Authorization': `Bearer ${session.access_token}`,
         },
