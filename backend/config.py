@@ -33,12 +33,36 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+        case_sensitive = False  # Allow lowercase in .env but read UPPERCASE from os.environ
+        extra = "ignore"  # Ignore extra env vars
 
 
 @lru_cache()
 def get_settings() -> Settings:
     """Get cached settings instance."""
-    return Settings()
+    import os
+    
+    # Debug: Print what environment variables are actually set
+    print("\n=== ENVIRONMENT VARIABLES DEBUG ===")
+    print(f"SUPABASE_URL exists: {'SUPABASE_URL' in os.environ}")
+    print(f"SUPABASE_SECRET_KEY exists: {'SUPABASE_SECRET_KEY' in os.environ}")
+    print(f"SUPABASE_PUBLISHABLE_KEY exists: {'SUPABASE_PUBLISHABLE_KEY' in os.environ}")
+    print(f"OPENAI_API_KEY exists: {'OPENAI_API_KEY' in os.environ}")
+    
+    if 'SUPABASE_URL' in os.environ:
+        print(f"SUPABASE_URL value: {os.environ['SUPABASE_URL'][:50]}...")
+    if 'SUPABASE_SECRET_KEY' in os.environ:
+        print(f"SUPABASE_SECRET_KEY length: {len(os.environ['SUPABASE_SECRET_KEY'])}")
+        print(f"SUPABASE_SECRET_KEY first 50 chars: {os.environ['SUPABASE_SECRET_KEY'][:50]}")
+    print("=================================\n")
+    
+    settings = Settings()
+    
+    # Verify settings were loaded
+    print(f"[Settings] Loaded URL: {settings.supabase_url[:30]}..." if hasattr(settings, 'supabase_url') and settings.supabase_url else "[Settings] URL NOT LOADED")
+    print(f"[Settings] Loaded Secret Key length: {len(settings.supabase_secret_key)}" if hasattr(settings, 'supabase_secret_key') and settings.supabase_secret_key else "[Settings] Secret Key NOT LOADED")
+    
+    return settings
 
 
 # Model pricing (per 1M tokens) - Updated January 2025
