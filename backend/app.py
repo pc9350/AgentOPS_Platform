@@ -30,6 +30,10 @@ app = FastAPI(
 
 # Configure CORS
 settings = get_settings()
+# print(f"\n🔒 CORS Configuration:")
+# print(f"   Allowed Origins: {settings.cors_origins_list}")
+# print(f"   Raw CORS_ORIGINS: {settings.cors_origins}\n")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,
@@ -58,4 +62,13 @@ async def root():
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy"}
+
+
+# @app.get("/api/debug/cors")
+# async def debug_cors():
+#     """Debug endpoint to check CORS configuration."""
+#     return {
+#         "cors_origins": settings.cors_origins_list,
+#         "message": "If you can see this from your frontend, CORS is working!"
+#     }
 

@@ -16,9 +16,9 @@ def get_supabase_client() -> Client:
     settings = get_settings()
     
     # Debug logging for Render
-    print(f"[Supabase Client] URL loaded: {settings.supabase_url[:30]}..." if settings.supabase_url else "[Supabase Client] URL is EMPTY!")
-    print(f"[Supabase Client] Secret key loaded: {settings.supabase_secret_key[:30]}..." if settings.supabase_secret_key else "[Supabase Client] Secret key is EMPTY!")
-    print(f"[Supabase Client] Secret key length: {len(settings.supabase_secret_key)}")
+    # print(f"[Supabase Client] URL loaded: {settings.supabase_url[:30]}..." if settings.supabase_url else "[Supabase Client] URL is EMPTY!")
+    # print(f"[Supabase Client] Secret key loaded: {settings.supabase_secret_key[:30]}..." if settings.supabase_secret_key else "[Supabase Client] Secret key is EMPTY!")
+    # print(f"[Supabase Client] Secret key length: {len(settings.supabase_secret_key)}")
     
     # Check for common issues
     if not settings.supabase_url or not settings.supabase_secret_key:

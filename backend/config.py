@@ -43,11 +43,11 @@ def get_settings() -> Settings:
     import os
     
     # Debug: Print what environment variables are actually set
-    print("\n=== ENVIRONMENT VARIABLES DEBUG ===")
-    print(f"SUPABASE_URL exists: {'SUPABASE_URL' in os.environ}")
-    print(f"SUPABASE_SECRET_KEY exists: {'SUPABASE_SECRET_KEY' in os.environ}")
-    print(f"SUPABASE_PUBLISHABLE_KEY exists: {'SUPABASE_PUBLISHABLE_KEY' in os.environ}")
-    print(f"OPENAI_API_KEY exists: {'OPENAI_API_KEY' in os.environ}")
+    # print("\n=== ENVIRONMENT VARIABLES DEBUG ===")
+    # print(f"SUPABASE_URL exists: {'SUPABASE_URL' in os.environ}")
+    # print(f"SUPABASE_SECRET_KEY exists: {'SUPABASE_SECRET_KEY' in os.environ}")
+    # print(f"SUPABASE_PUBLISHABLE_KEY exists: {'SUPABASE_PUBLISHABLE_KEY' in os.environ}")
+    # print(f"OPENAI_API_KEY exists: {'OPENAI_API_KEY' in os.environ}")
     
     if 'SUPABASE_URL' in os.environ:
         print(f"SUPABASE_URL value: {os.environ['SUPABASE_URL'][:50]}...")
