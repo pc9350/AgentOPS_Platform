@@ -9,15 +9,15 @@ AgentOps is a production-ready platform that evaluates, monitors, and optimizes 
 AgentOps is **NOT a chatbot**. It's an **AI observability and evaluation platform**.
 
 **Use it to:**
-- ✅ **Evaluate AI responses** - Get quality scores (coherence, factuality, helpfulness)
-- ⚠️ **Monitor safety** - Detect toxic, biased, or harmful AI outputs
-- 💡 **Optimize prompts** - Get AI-suggested improvements to your prompts
-- 📊 **Track performance** - Monitor costs, latency, token usage
-- 🔍 **Ensure compliance** - Check if AI follows your Standard Operating Procedures (SOPs)
+-  **Evaluate AI responses** - Get quality scores (coherence, factuality, helpfulness)
+-  **Monitor safety** - Detect toxic, biased, or harmful AI outputs
+-  **Optimize prompts** - Get AI-suggested improvements to your prompts
+-  **Track performance** - Monitor costs, latency, token usage
+-  **Ensure compliance** - Check if AI follows your Standard Operating Procedures (SOPs)
 
 **Think of it as:** Google Analytics + Sentry + Testing Suite for your AI applications.
 
-## 🚀 Quick Start - Test It Now
+## Quick Start - Test It Now
 
 1. **Start the backend** (in one terminal):
    ```bash
